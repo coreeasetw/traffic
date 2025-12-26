@@ -8,6 +8,7 @@
 - `js/traffic.js`：地圖、圖表與導覽文字的前端邏輯。
 - `accidentXY_113.tsv`：自 `113年-臺北市A1及A2類交通事故明細 (1).csv` 整理、去重後的 UTF-8 TSV 檔（每列 1 起事故）。
 - `accidentXY_light.tsv`：示範用途的輕量資料集。
+- `places.html`：載入並排序顯示「本市 A1 及 A2 類道路交通事故－按肇事場所別（113 年）」原始 CSV 檔的 GitHub Pages 頁面。
 
 ## 本機執行
 不需要建置流程。將儲存庫根目錄作為靜態檔案啟動伺服器，直接在瀏覽器開啟 `index.html`：
@@ -20,11 +21,11 @@ python -m http.server 8000
 頁面會直接載入 TSV 檔案，外部套件與 Google Maps 需要網際網路連線。
 
 ## 部署到 GitHub Pages
-網站可以直接從 `main` 分支的儲存庫根目錄發布。
+網站可以直接從 `main` 分支的儲存庫根目錄發布，包含資料檔案與 `places.html` 檔案。
 
 1. 啟用 GitHub Pages，來源設定為「Deploy from a branch」，資料夾選擇 `main` 分支的 `/`。
 2. 推送至 `main`；隨附的工作流程（`.github/workflows/pages.yml`）會上傳根目錄並發布至 GitHub Pages 環境。
-3. 造訪 `https://<your-user>.github.io/traffic/`（如果儲存庫名稱不同，請替換 `traffic`）。
+3. 造訪 `https://<your-user>.github.io/traffic/`（如果儲存庫名稱不同，請替換 `traffic`）。若要直接檢視肇事場所別資料，前往 `https://<your-user>.github.io/traffic/places.html`。
 
 ## 開發流程
 LiveScript、Stylus 與 Jade 原始碼已移除，請直接修改排版後的 HTML、JS 與 CSS 檔案。如需自動化流程（例如格式化），建議新增 npm script，而非重新導入舊的 Gulp 工作。
